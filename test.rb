@@ -1,12 +1,39 @@
-def swap_first_last_characters(a, b)
-  a, b = b, a
-end
+# Given the string of chars a..z A..Z do as in the sample cases
 
-def swap(words)
-  result = words.split.map do |word|
-    swap_first_last_characters(word[0], word[-1])
+# p accum("abcd")    # "A-Bb-Ccc-Dddd"
+# p accum("RqaEzty") # "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+# p accum("cwAt")    # "C-Ww-Aaa-Tttt"
+
+# given string of chars
+# change string into chars array
+# print letter once as a capital
+# if it's past the first position, 
+# print the letter the amount of times for the position it's in 
+# after each letter put a -
+
+
+def accum(str)
+  ary = str.chars
+  new_array = []
+
+  ary.each do |letter|
+    new_array << letter.upcase
+
+    ary.find_index(letter).times do
+      new_array << letter.downcase
+    end
+    new_array << "-"
   end
-  result.join(' ')
+  new_array.pop
+  new_array.join
 end
 
-puts swap("Hello there pal")
+p accum("abcd")
+p accum("RqaEzty")
+p accum("cwAt")
+
+def accum(str)
+  str.chars.map.with_index do |char, idx|
+    (char * (idx + 1)).capitalize
+  end
+end
