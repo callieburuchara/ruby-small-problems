@@ -1,0 +1,4 @@
+The %{adjective} brown %{noun} %{adverb}
+licks the sleepy %{adjective}
+%{noun}, who %{adverb} %{verb} his
+%{noun} and %{verb} around.
